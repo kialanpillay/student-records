@@ -16,7 +16,7 @@ clean:
 	@rm driver
    
 run:
-	@./driver
+	@./bin/driver
 
 install:
 	@mkdir ./bin && mv driver ./bin
