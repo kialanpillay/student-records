@@ -2,16 +2,65 @@
 #include "database.h"
 
 using namespace std;
+using namespace PLLKIA010;
 
 int main (void)
 {
-    cout << "0: Add student\n1: Read database\n2: Save database\n3: Display data\n4: Grade student\nq: quit" << endl;
     for (;;) { 
-        cout << "Enter a number (or q to quit) and press return..." << endl;
+        cout << "0: Add student\n1: Read database\n2: Save database\n3: Display data\n4: Grade student\nq: quit" << endl;
+        cout << "Enter a number (or q to quit) and press return...\n" << endl;
         string option;
         cin >> option;
+        if(option == "0")
+        {
+            string name, surname, student_number, grade, student_record;
+            cout << "Enter the name of the student" << endl;
+            cin >> name;
+            cout << "Enter the surname of the student" << endl;
+            cin >> surname;
+            cout << "Enter the student number of the student" << endl;
+            cin >> student_number;
+
+            cout << "Enter grades for the student (or q to quit)" << endl;
+            cin >> grade;
+            while(grade != "q"){
+                student_record.append(" ");
+                student_record.append(grade);
+                cin >> grade;
+            };
+            cout << endl;
+            add_student(name, surname, student_number, student_record);
+
+        }
+        else if(option == "1")
+        {
+            read_database();
+            cout << "Database read!\n" << endl;
+        }
+        else if(option == "2")
+        {
+            save_database();
+            cout << "Database saved!\n" << endl;
+        }
+        else if(option == "3")
+        {
+            string student_number;
+            cout << "Enter the student number of the student:" << endl;
+            cin >> student_number;
+            PLLKIA010::StudentRecord record = {};
+            record = display_data(student_number);
+            cout << '\n' <<record.Name << " " << record.Surname << " " << record.StudentNumber << " " << record.ClassRecord  << "\n"<< endl;
+        }
+        else if(option == "4")
+        {
+            string student_number;
+            cout << "Enter the student number of the student:" << endl;
+            cin >> student_number;
+            cout << "Average Grade: " << grade_student(student_number) << "\n" << endl;
+        }
         if (option == "q") break;
     }
+    clear();
     
     return 0;
 }

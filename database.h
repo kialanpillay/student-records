@@ -3,14 +3,25 @@
 #include <sstream>
 #include <vector>
 
-using namespace std;
-
 namespace PLLKIA010 {
-    void add_student(string name, string surname, string student_number, string class_record);
-    ostringstream& read_database(void);
-    void save_database(vector<string> &student_records);
-    ostringstream& display_data(string student_number);
-    double grade_student(string student_number);
+    
+    //Data Members
+    struct StudentRecord{
+        std::string Name;
+        std::string Surname;
+        std::string StudentNumber;
+        std::string ClassRecord;
+    };
+
+    extern std::vector<StudentRecord> database;
+
+    //Methods
+
+    void add_student(std::string name, std::string surname, std::string student_number, std::string class_record);
+    void read_database(void);
+    void save_database(void);
+    StudentRecord& display_data(std::string student_number);
+    double grade_student(std::string student_number);
     void clear(void);
 }
 
