@@ -114,7 +114,6 @@ double PLLKIA010::grade_student(string student_number)
     }
     if(record.ClassRecord != ""){ //If record is found in Vector, thus field is not-empty
         istringstream iss(record.ClassRecord);
-        cout << iss.str();
         while (!iss.eof())
         {
             iss >> value;
