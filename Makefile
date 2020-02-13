@@ -19,4 +19,4 @@ run:
 	@./driver
 
 install:
-	@mv driver ~/bin
+	@mkdir ./bin && mv driver ./bin
