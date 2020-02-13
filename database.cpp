@@ -59,12 +59,13 @@ void PLLKIA010::read_database(void)
         string line = str;
         istringstream iss(line);
         iss >> record.Name >> record.Surname >> record.StudentNumber;
-        iss >> value;
         while (!iss.eof())
         {
-            record.ClassRecord += value + " ";
             iss >> value;
+            record.ClassRecord += value + " ";
         }
+        string formattedRecord = record.ClassRecord.substr(0,record.ClassRecord.length()-1);
+        record.ClassRecord = formattedRecord;
         database.push_back(record);
     };
 }
@@ -113,11 +114,11 @@ double PLLKIA010::grade_student(string student_number)
     }
     if(record.ClassRecord != ""){ //If record is found in Vector, thus field is not-empty
         istringstream iss(record.ClassRecord);
-        iss >> value;
+        cout << iss.str();
         while (!iss.eof())
         {
-            total_grade += value;
             iss >> value;
+            total_grade += value;
             count++;
         }
         double average = total_grade/count;

@@ -24,10 +24,11 @@ int main (void)
             cout << "Enter grades for the student (or q to quit)" << endl;
             cin >> grade;
             while(grade != "q"){
-                student_record.append(" ");
                 student_record.append(grade);
+                student_record.append(" ");
                 cin >> grade;
             };
+            student_record = student_record.substr(0,student_record.length()-1);
             cout << endl;
             add_student(name, surname, student_number, student_record);
 

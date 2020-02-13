@@ -13,10 +13,11 @@ database.o: database.cpp database.h
 
 clean:
 	@rm -f *.o
-	@rm driver
+	@rm -rf ./bin
+	@rm database.txt
    
 run:
 	@./bin/driver
 
 install:
-	@mkdir ./bin && mv driver ./bin
+	@rm -rf ./bin && mkdir ./bin && mv driver ./bin
