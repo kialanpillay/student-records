@@ -14,11 +14,11 @@ int main (void)
         if(option == "0")
         {
             string name, surname, student_number, grade, student_record;
-            cout << "Enter the name of the student" << endl;
+            cout << "Enter the name of the student:" << endl;
             cin >> name;
-            cout << "Enter the surname of the student" << endl;
+            cout << "Enter the surname of the student:" << endl;
             cin >> surname;
-            cout << "Enter the student number of the student" << endl;
+            cout << "Enter the student number of the student:" << endl;
             cin >> student_number;
 
             cout << "Enter grades for the student (or q to quit)" << endl;
@@ -48,15 +48,34 @@ int main (void)
             cout << "Enter the student number of the student:" << endl;
             cin >> student_number;
             PLLKIA010::StudentRecord record = {};
+            cout << record.Name;
             record = display_data(student_number);
-            cout << '\n' <<record.Name << " " << record.Surname << " " << record.StudentNumber << " " << record.ClassRecord  << "\n"<< endl;
+            if(record.StudentNumber != "")
+            {
+                cout << '\n' <<record.Name << " " << record.Surname << " " << record.StudentNumber << " " << record.ClassRecord  << "\n"<< endl;
+            }
+            else
+            {
+                cout << "Student does not exist in database!\n" << endl;
+            }
+            
+            
         }
         else if(option == "4")
         {
             string student_number;
             cout << "Enter the student number of the student:" << endl;
             cin >> student_number;
-            cout << "Average Grade: " << grade_student(student_number) << "\n" << endl;
+            double average = grade_student(student_number);
+            if (average == 0)
+            {
+                cout << "Student does not exist in database!\n" << endl;
+            }
+            else
+            {
+                cout << "Average Grade: " << average << "\n" << endl;
+            }
+            
         }
         if (option == "q") break;
     }

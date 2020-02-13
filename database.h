@@ -20,7 +20,7 @@ namespace PLLKIA010 {
     void add_student(std::string name, std::string surname, std::string student_number, std::string class_record);
     void read_database(void);
     void save_database(void);
-    StudentRecord& display_data(std::string student_number);
+    StudentRecord display_data(std::string student_number);
     double grade_student(std::string student_number);
     void clear(void);
 }

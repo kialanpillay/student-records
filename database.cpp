@@ -59,10 +59,11 @@ void PLLKIA010::read_database(void)
         string line = str;
         istringstream iss(line);
         iss >> record.Name >> record.Surname >> record.StudentNumber;
+        iss >> value;
         while (!iss.eof())
         {
-            iss >> value;
             record.ClassRecord += value + " ";
+            iss >> value;
         }
         database.push_back(record);
     };
@@ -77,9 +78,9 @@ void PLLKIA010::save_database(void){
     file.close();
 }
 
-PLLKIA010::StudentRecord& PLLKIA010::display_data(string student_number)
+PLLKIA010::StudentRecord PLLKIA010::display_data(string student_number)
 {
-    static PLLKIA010::StudentRecord record = {};
+    PLLKIA010::StudentRecord record = {};
     for(PLLKIA010::StudentRecord r : PLLKIA010::database)
     {
         if(r.StudentNumber == student_number)
@@ -92,14 +93,15 @@ PLLKIA010::StudentRecord& PLLKIA010::display_data(string student_number)
             };
         }
 
-    } 
+    }
+     
     return record;
         
 }
 
 double PLLKIA010::grade_student(string student_number)
 {
-    int total_grade, count = 0;
+    int total_grade, count, value = 0;
     PLLKIA010::StudentRecord record = {};
     for(PLLKIA010::StudentRecord r : PLLKIA010::database)
     {
@@ -109,17 +111,19 @@ double PLLKIA010::grade_student(string student_number)
         }
 
     }
-    istringstream iss(record.ClassRecord);
-    while (!iss.eof())
-    {
-        int value;
+    if(record.ClassRecord != ""){ //If record is found in Vector, thus field is not-empty
+        istringstream iss(record.ClassRecord);
         iss >> value;
-        total_grade += value;
-        count++;
+        while (!iss.eof())
+        {
+            total_grade += value;
+            iss >> value;
+            count++;
+        }
+        double average = total_grade/count;
+        return average;
     }
-
-    double average = total_grade/count;
-    return average;
+    return 0; //If no student found return 0
 
 
 }
