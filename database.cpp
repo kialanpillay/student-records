@@ -102,7 +102,8 @@ PLLKIA010::StudentRecord PLLKIA010::display_data(string student_number)
 
 double PLLKIA010::grade_student(string student_number)
 {
-    int total_grade, count, value = 0;
+    double total_grade, count = 0;
+    int value = 0;
     PLLKIA010::StudentRecord record = {};
     for(PLLKIA010::StudentRecord r : PLLKIA010::database)
     {

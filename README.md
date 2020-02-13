@@ -1,7 +1,7 @@
 # Assignment One: PLLKIA010
 
 ## Makefile
-The purpose of the Makefile is to automatically compile and link the C++ source files into a binary executable that can be run locally. 
+The purpose of the Makefile is to automatically compile and link the C++ source files into a binary executable that can be run locally. Run these commands in sequence to interact with the program.
 ```make``` will compile the files into an executable called ```driver```
 
 ```make install``` moves the executable into a seperate *bin* directory 

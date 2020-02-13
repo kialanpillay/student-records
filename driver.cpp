@@ -6,6 +6,7 @@ using namespace PLLKIA010;
 
 int main (void)
 {
+    bool readDB = false;
     for (;;) { 
         cout << "0: Add student\n1: Read database\n2: Save database\n3: Display data\n4: Grade student\nq: quit" << endl;
         cout << "Enter a number (or q to quit) and press return...\n" << endl;
@@ -31,12 +32,22 @@ int main (void)
             student_record = student_record.substr(0,student_record.length()-1);
             cout << endl;
             add_student(name, surname, student_number, student_record);
+            cout << "Added student!\n" << endl;
 
         }
         else if(option == "1")
-        {
-            read_database();
-            cout << "Database read!\n" << endl;
+        {   
+            if(readDB)
+            {
+                cout << "Database already read in!\n" << endl;
+            }
+            else
+            {
+                read_database();
+                cout << "Database read!\n" << endl; 
+                readDB = true;
+            }
+            
         }
         else if(option == "2")
         {
@@ -53,7 +64,7 @@ int main (void)
             record = display_data(student_number);
             if(record.StudentNumber != "")
             {
-                cout << '\n' <<record.Name << " " << record.Surname << " " << record.StudentNumber << " " << record.ClassRecord  << "\n"<< endl;
+                cout << "\nRecord: " <<record.Name << " " << record.Surname << " " << record.StudentNumber << " " << record.ClassRecord  << "\n"<< endl;
             }
             else
             {
