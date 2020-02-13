@@ -32,7 +32,6 @@ int main (void)
             student_record = student_record.substr(0,student_record.length()-1);
             cout << endl;
             add_student(name, surname, student_number, student_record);
-            cout << "Added student!\n" << endl;
 
         }
         else if(option == "1")

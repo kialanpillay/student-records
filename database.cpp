@@ -32,6 +32,7 @@ void PLLKIA010::add_student(string name, string surname, string student_number, 
             class_record,
         };
         database[index] = record;
+        cout << "Updated student record!\n" << endl;
     }
     else
     {
@@ -41,7 +42,8 @@ void PLLKIA010::add_student(string name, string surname, string student_number, 
             student_number,
             class_record,
         };
-        database.push_back(record);  
+        database.push_back(record);
+        cout << "Added student!\n" << endl;  
     }
      
 
