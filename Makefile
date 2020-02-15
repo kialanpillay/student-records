@@ -1,6 +1,5 @@
 CC=g++         
-CCFLAGS=-std=c++11
-LIBS=-lm      
+CCFLAGS=-std=c++11  
 
 driver: driver.o database.o
 	$(CC) $(CCFLAGS) driver.o database.o -o driver
