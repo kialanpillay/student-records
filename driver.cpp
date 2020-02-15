@@ -22,7 +22,7 @@ int main (void)
             cout << "Enter the student number of the student:" << endl;
             cin >> student_number;
 
-            cout << "Enter grades for the student (or q to quit)" << endl;
+            cout << "Enter grades for the student (press enter after each grade, or q to quit)" << endl;
             cin >> grade;
             while(grade != "q"){
                 student_record.append(grade);
