@@ -51,6 +51,7 @@ int main (void)
         else if(option == "2")
         {
             save_database();
+            readDB = true;
             cout << "Database saved!\n" << endl;
         }
         else if(option == "3")
