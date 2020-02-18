@@ -21,8 +21,8 @@ This file is the actual implementation of the method definitions declared in the
 
 ## driver.cpp
 
-This file contains the main method, and provides and entry point into the program. It consists of a simple menu of options which are contininsouly displayed to the user, until they decide to quit the program. Users can select options 0 - 4, which correspond to a different action e.g. Adding a student, reading the database (textfile). All interaction with the program is done via a Command Line Interface. All input required is clearly prompted.
+This file contains the main method, and provides an entry point into the program. It consists of a simple menu of options which are continually displayed to the user, until they decide to quit the program. It imports the database.h file in order to provide program functionality. Users can select options 0 - 4, which correspond to a different action e.g. Adding a student, reading the database (textfile). All interaction with the program is done via a Command Line Interface. All input required is clearly prompted.
 
 ## General
 
-You can only read in the database once, there is logic to prevent multiple reads of the database. This is to prevent duplicate data being stored into the Vector. If you simply save the database, without reading, you are also prevented from reading in the database. This is because the data is already present in the Vector, and there is no need to access it from persistent storage. 
+You can only read in the database once, there is logic to prevent multiple reads of the database. This is to prevent duplicate data being stored into the Vector. If you simply save the database, without reading, you are also prevented from reading in the database. This is because the data is already present in the Vector, and there is no need to access it from persistent storage. Saving the database without reading in first will result in the records being overwritten with the current contents of the vector.
