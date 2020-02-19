@@ -25,15 +25,11 @@ int main (void)
             cout << "Enter grades for the student (press enter after each grade, or q to quit)" << endl;
             cin >> grade;
             while(grade != "q"){
-                if(any_of(grade.begin(), grade.end(), ::isdigit)){
-                    student_record.append(grade);
-                    student_record.append(" ");
-                    cin >> grade;
-                }
-                else if(grade != "q"){
-                    cout << "Invalid input!" << endl;
-                    cin >> grade;
-                }
+
+                student_record.append(grade);
+                student_record.append(" ");
+                cin >> grade;
+                
                 
             };
             student_record = student_record.substr(0,student_record.length()-1);
