@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include "database.h"
 
 using namespace std;
@@ -25,11 +26,15 @@ int main (void)
             cout << "Enter grades for the student (press enter after each grade, or q to quit)" << endl;
             cin >> grade;
             while(grade != "q"){
-
-                student_record.append(grade);
-                student_record.append(" ");
-                cin >> grade;
-                
+                if(std::any_of(grade.begin(), grade.end(), ::isdigit)){
+                    student_record.append(grade);
+                    student_record.append(" ");
+                    cin >> grade;
+                }
+                else if(grade != "q"){
+                    cout << "Invalid input!" << endl;
+                    cin >> grade;
+                }
                 
             };
             student_record = student_record.substr(0,student_record.length()-1);
