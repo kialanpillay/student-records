@@ -12,7 +12,7 @@ std::vector<PLLKIA010::StudentRecord> PLLKIA010::database = {};
 void PLLKIA010::add_student(string name, string surname, string student_number, string class_record)
 {
     bool exists = false;
-    int count, index = 0;
+    int count = 0, index = 0;
     for(PLLKIA010::StudentRecord r : PLLKIA010::database)
     {
         if(r.StudentNumber == student_number)
@@ -104,7 +104,7 @@ PLLKIA010::StudentRecord PLLKIA010::display_data(string student_number)
 
 double PLLKIA010::grade_student(string student_number)
 {
-    double total_grade, count = 0;
+    double total_grade = 0.0, count = 0.0;
     int value = 0;
     PLLKIA010::StudentRecord record = {};
     for(PLLKIA010::StudentRecord r : PLLKIA010::database)

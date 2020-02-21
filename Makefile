@@ -1,5 +1,5 @@
 CC=g++         
-CCFLAGS=-std=c++11  
+CCFLAGS=-std=c++11 -Wall -g -fsanitize=address -fno-omit-frame-pointer 
 
 driver: driver.o database.o
 	$(CC) $(CCFLAGS) driver.o database.o -o driver
